@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figma to Code Agent</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" fill="#4F46E5"/>
+          <path d="M12 10H20V18H12V10Z" fill="white"/>
+          <path d="M20 10H28V18H20V10Z" fill="#A5B4FC"/>
+          <path d="M12 18H20V26H12V18Z" fill="#A5B4FC"/>
+          <path d="M20 18H28V26H20V18Z" fill="white"/>
+          <path d="M12 26H20V34H12V26Z" fill="white"/>
+        </svg>
+        <h1>Figma to Code</h1>
+      </div>
+      <p class="tagline">Convert your Figma designs to React components instantly</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Step 1: Input -->
+      <section class="card" id="step-input">
+        <div class="step-header">
+          <span class="step-number">1</span>
+          <h2>Paste Your Figma URL</h2>
+        </div>
+
+        <div class="input-group">
+          <label for="figma-url">Figma File URL</label>
+          <input
+            type="url"
+            id="figma-url"
+            placeholder="https://www.figma.com/file/xxxxx/Your-Design"
+            autocomplete="off"
+          >
+          <p class="help-text">
+            Copy the URL from your browser when viewing your Figma file
+          </p>
+        </div>
+
+        <div class="options-grid">
+          <div class="input-group">
+            <label for="styling">Styling Approach</label>
+            <select id="styling">
+              <option value="tailwind">Tailwind CSS</option>
+              <option value="css-modules">CSS Modules</option>
+              <option value="styled-components">Styled Components</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="generate-tests" checked>
+              <span>Generate Tests</span>
+            </label>
+          </div>
+
+          <div class="input-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="use-ai" checked>
+              <span>Use AI Analysis</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="convert-btn" onclick="startConversion()">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 3L17 10L10 17M17 10H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Convert to Code
+        </button>
+      </section>
+
+      <!-- Step 2: Progress -->
+      <section class="card hidden" id="step-progress">
+        <div class="step-header">
+          <span class="step-number">2</span>
+          <h2>Converting Your Design</h2>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <div class="progress-info">
+            <span id="progress-text">Starting...</span>
+            <span id="progress-percent">0%</span>
+          </div>
+        </div>
+
+        <div class="status-steps" id="status-steps">
+          <div class="status-step" data-step="fetching">
+            <div class="status-icon pending"></div>
+            <span>Fetching Figma design</span>
+          </div>
+          <div class="status-step" data-step="analyzing">
+            <div class="status-icon pending"></div>
+            <span>Analyzing design structure</span>
+          </div>
+          <div class="status-step" data-step="ai-analysis">
+            <div class="status-icon pending"></div>
+            <span>AI analyzing patterns</span>
+          </div>
+          <div class="status-step" data-step="generating">
+            <div class="status-icon pending"></div>
+            <span>Generating components</span>
+          </div>
+          <div class="status-step" data-step="writing">
+            <div class="status-icon pending"></div>
+            <span>Writing files</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Results -->
+      <section class="card hidden" id="step-results">
+        <div class="step-header">
+          <span class="step-number success">✓</span>
+          <h2>Conversion Complete!</h2>
+        </div>
+
+        <div class="results-summary" id="results-summary">
+          <div class="stat">
+            <span class="stat-value" id="files-count">0</span>
+            <span class="stat-label">Files Generated</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="components-count">0</span>
+            <span class="stat-label">Components</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="tests-count">0</span>
+            <span class="stat-label">Tests</span>
+          </div>
+        </div>
+
+        <div class="file-explorer" id="file-explorer">
+          <h3>Generated Files</h3>
+          <div class="file-tree" id="file-tree"></div>
+        </div>
+
+        <div class="code-preview" id="code-preview">
+          <div class="code-tabs" id="code-tabs"></div>
+          <pre class="code-content" id="code-content"></pre>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-secondary" onclick="resetForm()">
+            Convert Another Design
+          </button>
+          <button class="btn btn-primary" onclick="downloadFiles()">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 3V13M10 13L6 9M10 13L14 9M3 17H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Download All Files
+          </button>
+        </div>
+      </section>
+
+      <!-- Error State -->
+      <section class="card error-card hidden" id="step-error">
+        <div class="error-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="20" stroke="#EF4444" stroke-width="3"/>
+            <path d="M24 14V26M24 32V34" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2>Something went wrong</h2>
+        <p id="error-message">An error occurred during conversion.</p>
+        <button class="btn btn-primary" onclick="resetForm()">
+          Try Again
+        </button>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Powered by Claude AI • Open Source on GitHub</p>
+    </footer>
+  </div>
+
+  <!-- Config Warning Modal -->
+  <div class="modal hidden" id="config-modal">
+    <div class="modal-content">
+      <h2>Configuration Required</h2>
+      <p>The server needs API keys to be configured. Please set up your environment variables:</p>
+      <div class="config-status" id="config-status"></div>
+      <pre class="code-block">
+# Create a .env file with:
+FIGMA_ACCESS_TOKEN=your_token
+ANTHROPIC_API_KEY=your_key
+      </pre>
+      <button class="btn btn-primary" onclick="closeConfigModal()">Got it</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

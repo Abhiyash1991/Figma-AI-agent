@@ -11,13 +11,39 @@ An AI-powered agent that converts Figma designs into production-ready React/Type
 
 ## Features
 
+- **Web UI**: Simple browser interface - no coding required!
 - **AI-Powered Analysis**: Uses Claude to intelligently analyze designs and identify components, patterns, and styles
 - **React + TypeScript**: Generates modern, type-safe React components
 - **Tailwind CSS**: Converts designs to Tailwind utility classes (also supports CSS Modules and styled-components)
 - **Comprehensive Testing**: Auto-generates Jest + React Testing Library tests for all components
 - **Modular Structure**: Creates well-organized, reusable component architecture
 - **Design Tokens**: Extracts colors, typography, and spacing into design tokens
-- **CLI Interface**: Easy-to-use command-line tool
+- **CLI Interface**: Command-line tool for advanced users
+
+## Quick Start (Web UI)
+
+The easiest way to use this tool - no coding required!
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Set up your API keys in .env file
+cp .env.example .env
+# Edit .env and add your FIGMA_ACCESS_TOKEN and ANTHROPIC_API_KEY
+
+# 3. Start the web interface
+npm run web
+```
+
+Then open **http://localhost:3000** in your browser:
+
+1. Paste your Figma URL
+2. Choose styling options
+3. Click "Convert to Code"
+4. Preview and download your components!
+
+![Web UI Screenshot](./docs/web-ui.png)
 
 ## Installation
 
