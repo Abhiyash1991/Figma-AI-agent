@@ -2,6 +2,13 @@
 
 An AI-powered agent that converts Figma designs into production-ready React/TypeScript components with modular code structure and comprehensive tests.
 
+## Documentation
+
+- [Usage Guide](./docs/USAGE.md) - Detailed usage instructions and workflows
+- [API Reference](./docs/API.md) - Complete API documentation
+- [Examples](./examples/) - Example Figma designs and generated components
+- [Contributing](./CONTRIBUTING.md) - Contribution guidelines
+
 ## Features
 
 - **AI-Powered Analysis**: Uses Claude to intelligently analyze designs and identify components, patterns, and styles
@@ -192,6 +199,22 @@ src/
 └── index.ts         # Library entry point
 ```
 
+## Examples
+
+Check out the [examples](./examples/) directory for complete examples:
+
+| Example | Description |
+|---------|-------------|
+| [Button](./examples/button/) | Simple button with variants and states |
+| [Product Card](./examples/card/) | E-commerce product card with nested components |
+| [Login Form](./examples/form/) | Form with validation and error handling |
+
+Each example includes:
+- Figma JSON data
+- Generated React component
+- Generated tests
+- Documentation
+
 ## Limitations
 
 - Complex animations are not supported
@@ -201,7 +224,22 @@ src/
 
 ## Contributing
 
-Contributions are welcome! Please read our contributing guidelines before submitting PRs.
+Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.md) before submitting PRs.
+
+### Quick Start for Contributors
+
+```bash
+# Clone and setup
+git clone https://github.com/yourusername/figma-to-code-agent.git
+cd figma-to-code-agent
+npm install
+
+# Run tests
+npm test
+
+# Development mode
+npm run dev -- convert "figma-url"
+```
 
 ## License
 

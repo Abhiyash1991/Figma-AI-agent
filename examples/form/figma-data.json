@@ -1,0 +1,293 @@
+{
+  "id": "3:100",
+  "name": "Login Form",
+  "type": "FRAME",
+  "visible": true,
+  "absoluteBoundingBox": {
+    "x": 100,
+    "y": 100,
+    "width": 400,
+    "height": 480
+  },
+  "layoutMode": "VERTICAL",
+  "primaryAxisAlignItems": "MIN",
+  "counterAxisAlignItems": "STRETCH",
+  "paddingLeft": 32,
+  "paddingRight": 32,
+  "paddingTop": 40,
+  "paddingBottom": 40,
+  "itemSpacing": 24,
+  "cornerRadius": 16,
+  "fills": [
+    {
+      "type": "SOLID",
+      "visible": true,
+      "color": { "r": 1, "g": 1, "b": 1, "a": 1 }
+    }
+  ],
+  "effects": [
+    {
+      "type": "DROP_SHADOW",
+      "visible": true,
+      "radius": 24,
+      "offset": { "x": 0, "y": 8 },
+      "color": { "r": 0, "g": 0, "b": 0, "a": 0.1 }
+    }
+  ],
+  "children": [
+    {
+      "id": "3:101",
+      "name": "Header",
+      "type": "FRAME",
+      "visible": true,
+      "layoutMode": "VERTICAL",
+      "itemSpacing": 8,
+      "children": [
+        {
+          "id": "3:102",
+          "name": "Title",
+          "type": "TEXT",
+          "visible": true,
+          "characters": "Welcome Back",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 28,
+            "fontWeight": 700,
+            "lineHeightPx": 36
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": { "r": 0.1, "g": 0.1, "b": 0.1, "a": 1 }
+            }
+          ]
+        },
+        {
+          "id": "3:103",
+          "name": "Subtitle",
+          "type": "TEXT",
+          "visible": true,
+          "characters": "Sign in to your account",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 16,
+            "fontWeight": 400
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": { "r": 0.5, "g": 0.5, "b": 0.5, "a": 1 }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3:104",
+      "name": "Email Input",
+      "type": "FRAME",
+      "visible": true,
+      "layoutMode": "VERTICAL",
+      "itemSpacing": 6,
+      "children": [
+        {
+          "id": "3:105",
+          "name": "Label",
+          "type": "TEXT",
+          "visible": true,
+          "characters": "Email",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 14,
+            "fontWeight": 500
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": { "r": 0.2, "g": 0.2, "b": 0.2, "a": 1 }
+            }
+          ]
+        },
+        {
+          "id": "3:106",
+          "name": "Input Field",
+          "type": "FRAME",
+          "visible": true,
+          "absoluteBoundingBox": {
+            "x": 0,
+            "y": 0,
+            "width": 336,
+            "height": 48
+          },
+          "layoutMode": "HORIZONTAL",
+          "primaryAxisAlignItems": "MIN",
+          "counterAxisAlignItems": "CENTER",
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "cornerRadius": 8,
+          "strokes": [
+            {
+              "type": "SOLID",
+              "color": { "r": 0.85, "g": 0.85, "b": 0.85, "a": 1 }
+            }
+          ],
+          "strokeWeight": 1,
+          "children": [
+            {
+              "id": "3:107",
+              "name": "Placeholder",
+              "type": "TEXT",
+              "visible": true,
+              "characters": "Enter your email",
+              "style": {
+                "fontFamily": "Inter",
+                "fontSize": 16,
+                "fontWeight": 400
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": { "r": 0.6, "g": 0.6, "b": 0.6, "a": 1 }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3:108",
+      "name": "Password Input",
+      "type": "FRAME",
+      "visible": true,
+      "layoutMode": "VERTICAL",
+      "itemSpacing": 6,
+      "children": [
+        {
+          "id": "3:109",
+          "name": "Label",
+          "type": "TEXT",
+          "visible": true,
+          "characters": "Password",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 14,
+            "fontWeight": 500
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": { "r": 0.2, "g": 0.2, "b": 0.2, "a": 1 }
+            }
+          ]
+        },
+        {
+          "id": "3:110",
+          "name": "Input Field",
+          "type": "FRAME",
+          "visible": true,
+          "absoluteBoundingBox": {
+            "x": 0,
+            "y": 0,
+            "width": 336,
+            "height": 48
+          },
+          "layoutMode": "HORIZONTAL",
+          "primaryAxisAlignItems": "MIN",
+          "counterAxisAlignItems": "CENTER",
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "cornerRadius": 8,
+          "strokes": [
+            {
+              "type": "SOLID",
+              "color": { "r": 0.85, "g": 0.85, "b": 0.85, "a": 1 }
+            }
+          ],
+          "strokeWeight": 1,
+          "children": [
+            {
+              "id": "3:111",
+              "name": "Placeholder",
+              "type": "TEXT",
+              "visible": true,
+              "characters": "Enter your password",
+              "style": {
+                "fontFamily": "Inter",
+                "fontSize": 16,
+                "fontWeight": 400
+              },
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": { "r": 0.6, "g": 0.6, "b": 0.6, "a": 1 }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3:112",
+      "name": "Submit Button",
+      "type": "FRAME",
+      "visible": true,
+      "absoluteBoundingBox": {
+        "x": 0,
+        "y": 0,
+        "width": 336,
+        "height": 52
+      },
+      "layoutMode": "HORIZONTAL",
+      "primaryAxisAlignItems": "CENTER",
+      "counterAxisAlignItems": "CENTER",
+      "cornerRadius": 8,
+      "fills": [
+        {
+          "type": "SOLID",
+          "color": { "r": 0.2, "g": 0.4, "b": 0.9, "a": 1 }
+        }
+      ],
+      "children": [
+        {
+          "id": "3:113",
+          "name": "Button Text",
+          "type": "TEXT",
+          "visible": true,
+          "characters": "Sign In",
+          "style": {
+            "fontFamily": "Inter",
+            "fontSize": 16,
+            "fontWeight": 600
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": { "r": 1, "g": 1, "b": 1, "a": 1 }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3:114",
+      "name": "Footer Link",
+      "type": "TEXT",
+      "visible": true,
+      "characters": "Don't have an account? Sign up",
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "textAlignHorizontal": "CENTER"
+      },
+      "fills": [
+        {
+          "type": "SOLID",
+          "color": { "r": 0.4, "g": 0.4, "b": 0.4, "a": 1 }
+        }
+      ]
+    }
+  ]
+}
